@@ -1,0 +1,45 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"removeComments": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"sourceMap": false,
+		"outDir": "./build",
+		"baseUrl": "./src",
+		"rootDir": "./src",
+		"incremental": true,
+		"strictNullChecks": false,
+		"noImplicitAny": false,
+		"strictBindCallApply": false,
+
+		"target": "es5",
+		"allowJs": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": false,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"downlevelIteration": true,
+		"isolatedModules": false,
+		"noEmit": false,
+		"jsx": "react-jsx",
+		"module": "commonjs",
+		"paths": {
+			"@src/*": ["*"],
+			"@assets/*": ["@core/assets/*"],
+			"@components/*": ["@core/components/*"],
+			"@layouts/*": ["@core/layouts/*"],
+			"@store/*": ["redux/*"],
+			"@styles/*": ["@core/scss/*"],
+			"@configs/*": ["configs/*"],
+			"@utils/*": ["utility/Utils/*"],
+			"@hooks/*": ["utility/hooks/*"],
+			"@scss/*": ["src/assets/scss/*"]
+		}
+	},
+	"include": ["src"]
+}
