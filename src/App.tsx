@@ -1,11 +1,13 @@
 import React from 'react';
-import Main from './component/main';
+import VerticalLayout from './layouts/VerticalLayout';
 
 
 function App() {
   return (
     <div className="App">
-      <Main />
+      <VerticalLayout>
+        priver
+      </VerticalLayout>
     </div>
   );
 }

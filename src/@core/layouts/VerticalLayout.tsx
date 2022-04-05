@@ -1,11 +1,11 @@
-// @ts-nocheck
+// @ts-nocheck 
 // ** React Imports
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 // ** Store & Actions
 import { useSelector, useDispatch } from 'react-redux'
-import { handleMenuCollapsed, handleContentWidth, handleMenuHidden } from '@store/layout'
+import { handleMenuCollapsed, handleContentWidth, handleMenuHidden } from '../../store/layout'
 
 // ** Third Party Components
 import classnames from 'classnames'
@@ -15,7 +15,7 @@ import { ArrowUp } from 'ts-react-feather-icons'
 import { Navbar, Button } from 'reactstrap'
 
 // ** Configs
-import themeConfig from '@configs/themeConfig'
+import themeConfig from '../../configs/themeConfig'
 
 // ** Custom Components
 import Customizer from '@components/customizer'
@@ -25,15 +25,16 @@ import NavbarComponent from './components/navbar'
 import SidebarComponent from './components/menu/vertical-menu'
 
 // ** Custom Hooks
-import { useRTL } from '@hooks/useRTL'
-import { useSkin } from '@hooks/useSkin'
-import { useNavbarType } from '@hooks/useNavbarType'
-import { useFooterType } from '@hooks/useFooterType'
-import { useNavbarColor } from '@hooks/useNavbarColor'
+import { useRTL } from '../../utility/hooks/useRTL'
+import { useSkin } from '../../utility/hooks/useSkin'
+import { useNavbarType } from '../../utility/hooks/useNavbarType'
+import { useFooterType } from '../../utility/hooks/useFooterType'
+import { useNavbarColor } from '../../utility/hooks/useNavbarColor'
 
 // ** Styles
 import '@styles/base/core/menu/menu-types/vertical-menu.scss'
 import '@styles/base/core/menu/menu-types/vertical-overlay-menu.scss'
+import { useAppSelector } from '@src/hooks/useTypedSelector'
 
 const VerticalLayout = props => {
   // ** Props
@@ -53,7 +54,7 @@ const VerticalLayout = props => {
 
   // ** Store Vars
   const dispatch = useDispatch()
-  const layoutStore = useSelector(state => state.layout)
+  const layoutStore = useAppSelector(state => state.layout)
 
   // ** Update Window Width
   const handleWindowWidth = () => {
