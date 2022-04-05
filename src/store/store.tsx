@@ -1,18 +1,36 @@
+import { configureStore, combineReducers, Store } from '@reduxjs/toolkit';
+import { 
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import todoReducer from './todoSlice';
 
-import { configureStore, Store } from '@reduxjs/toolkit'
-import { combineReducers } from "@reduxjs/toolkit";
+const rootReducer = combineReducers({
+  todos: todoReducer,
+});
 
-const rootReducer = combineReducers({ });
+const persistConfig = {
+  key: 'root',
+  storage,
+}
 
-export const store: Store = configureStore({
-  reducer: rootReducer,
-  middleware: getDefaultMiddleware => {
-    return getDefaultMiddleware({
-      serializableCheck: false
-    })
-  }
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const store:Store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 })
 
-// export type RootState = ReturnType<typeof rootReducer>;
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export const persistor = persistStore(store);
+export default store;
