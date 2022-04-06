@@ -1,6 +1,6 @@
 // @ts-nocheck
 // ** Custom Components
-import Avatar from '@components/avatar'
+import Avatar from '../../avatar'
 
 // ** Third Party Components
 import PropTypes from 'prop-types'

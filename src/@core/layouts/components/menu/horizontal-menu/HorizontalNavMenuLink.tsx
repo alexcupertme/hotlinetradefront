@@ -1,7 +1,7 @@
 // @ts-nocheck
 // ** React Imports
 import { useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 // ** Third Party Components
 import classnames from 'classnames'
@@ -14,6 +14,9 @@ const HorizontalNavMenuLink = ({
   setOpenDropdown,
   currentActiveItem
 }) => {
+  // ** Hooks
+  const location = useLocation()
+
   // ** Conditional Link Tag, if item has newTab or externalLink props use <a> tag else use NavLink
   const LinkTag = item.externalLink ? 'a' : NavLink
 

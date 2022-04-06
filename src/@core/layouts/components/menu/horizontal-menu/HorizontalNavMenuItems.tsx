@@ -6,7 +6,7 @@ import {
   // canViewMenuGroup,
   // canViewMenuItem
   resolveHorizontalNavMenuItemComponent as resolveNavItemComponent
-} from '@layouts/utils'
+} from '../../../utils'
 
 const HorizontalNavMenuItems = props => {
   // ** Components Object

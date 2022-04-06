@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 
 // ** Custom Hooks
-import { useSkin } from '@hooks/useSkin'
+import { useSkin } from '../../utility/hooks/useSkin'
 
 // ** Third Party Components
 import classnames from 'classnames'

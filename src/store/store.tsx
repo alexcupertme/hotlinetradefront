@@ -1,19 +1,42 @@
+import { configureStore, combineReducers, Store } from '@reduxjs/toolkit';
+import { 
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import layout from './layout'
+import navbar from './navbar'
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-import { configureStore, Store } from '@reduxjs/toolkit'
-import { combineReducers } from "@reduxjs/toolkit";
-import layoutSlice from './layout'
+const rootReducer = combineReducers({
+  layout,
+  navbar
+});
 
-const rootReducer = combineReducers({layoutSlice});
+const persistConfig = {
+  key: 'root',
+  storage,
+}
 
-export const store: Store = configureStore({
-  reducer: rootReducer,
-  middleware: getDefaultMiddleware => {
-    return getDefaultMiddleware({
-      serializableCheck: false
-    })
-  }
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const store: Store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 })
 
-// export type RootState = ReturnType<typeof rootReducer>;
+
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
+
+export const persistor = persistStore(store);
+export default store;

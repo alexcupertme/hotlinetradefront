@@ -6,7 +6,7 @@ import { useState } from 'react'
 // ** Third Party Components
 import Select from 'react-select'
 import classnames from 'classnames'
-import { selectThemeColors } from '@utils'
+import { selectThemeColors } from '../../../utility/Utils'
 import { Settings, X } from 'ts-react-feather-icons'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
@@ -14,7 +14,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Input, Label } from 'reactstrap'
 
 // ** Styles
-import '@styles/react/libs/react-select/_react-select.scss'
+import '../../scss/react/libs/react-select/_react-select.scss'
 
 const Customizer = props => {
   // ** Props

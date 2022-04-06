@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ** Vertical Menu Components
 import VerticalNavMenuLink from './VerticalNavMenuLink'
 import VerticalNavMenuGroup from './VerticalNavMenuGroup'
@@ -8,7 +9,7 @@ import {
   // canViewMenuItem,
   // canViewMenuGroup,
   resolveVerticalNavMenuItemComponent as resolveNavItemComponent
-} from '@layouts/utils'
+} from '../../../utils'
 
 const VerticalMenuNavItems = props => {
   // ** Components Object

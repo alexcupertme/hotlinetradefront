@@ -10,7 +10,7 @@ import classnames from 'classnames'
 import { Dropdown, DropdownMenu, DropdownToggle } from 'reactstrap'
 
 // ** Utils
-import { hasActiveChild } from '@layouts/utils'
+import { hasActiveChild } from '../../../utils'
 
 // ** Horizontal Menu Items Component
 import HorizontalNavMenuItems from './HorizontalNavMenuItems'

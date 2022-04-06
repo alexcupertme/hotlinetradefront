@@ -1,7 +1,6 @@
-// @ts-nocheck
 // ** React Imports
 import { useContext } from 'react'
-import { AbilityContext } from '@src/utility/context/Can'
+import { AbilityCtx } from '../../utility/context/Can'
 
 /**
  * Return which component to render based on it's data/context
@@ -82,21 +81,21 @@ export const removeChildren = (children, openGroup, currentActiveGroup) => {
   })
 }
 
-export const canViewMenuGroup = item => {
-  const ability = useContext(AbilityContext)
+export const CanViewMenuGroup = item => {
+  const Ability = useContext(AbilityCtx)
   // ! This same logic is used in canViewHorizontalNavMenuGroup and canViewHorizontalNavMenuHeaderGroup. So make sure to update logic in them as well
-  const hasAnyVisibleChild = item.children && item.children.some(i => ability.can(i.action, i.resource))
+  const hasAnyVisibleChild = item.children && item.children.some(i => Ability.can(i.action, i.resource))
 
   // ** If resource and action is defined in item => Return based on children visibility (Hide group if no child is visible)
   // ** Else check for ability using provided resource and action along with checking if has any visible child
   if (!(item.action && item.resource)) {
     return hasAnyVisibleChild
   }
-  return ability.can(item.action, item.resource) && hasAnyVisibleChild
+  return Ability.can(item.action, item.resource) && hasAnyVisibleChild
 }
 
-export const canViewMenuItem = item => {
-  const ability = useContext(AbilityContext)
-  console.log('AbilityContext :>> ', AbilityContext)
-  return ability.can(item.action, item.resource)
+export const CanViewMenuItem = item => {
+  const Ability = useContext(AbilityCtx)
+  console.log('AbilityContext :>> ', Ability)
+  return Ability.can(item.action, item.resource)
 }

@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom'
 import { Disc, X, Circle } from 'ts-react-feather-icons'
 
 // ** Config
-import themeConfig from '@configs/themeConfig'
+import themeConfig from '../../../../../configs/themeConfig'
 
 const VerticalMenuHeader = props => {
   // ** Props

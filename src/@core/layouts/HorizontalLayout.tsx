@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 // ** Store & Actions
 import { useSelector, useDispatch } from 'react-redux'
-import { handleMenuHidden, handleContentWidth } from '@store/layout'
+import { handleMenuHidden, handleContentWidth } from '../../store/layout'
 
 // ** Third Party Components
 import classnames from 'classnames'
@@ -15,24 +15,24 @@ import { ArrowUp } from 'ts-react-feather-icons'
 import { Navbar, NavItem, Button } from 'reactstrap'
 
 // ** Configs
-import themeConfig from '@configs/themeConfig'
+import themeConfig from '../../configs/themeConfig'
 
 // ** Custom Components
-import Customizer from '@components/customizer'
-import ScrollToTop from '@components/scrolltop'
-import NavbarComponent from './components/navbar'
+import Customizer from '../../@core/components/customizer'
+import ScrollToTop from '../../@core/components/scrolltop'
 import FooterComponent from './components/footer'
+import NavbarComponent from './components/navbar'
 import MenuComponent from './components/menu/horizontal-menu'
 
 // ** Custom Hooks
-import { useRTL } from '@hooks/useRTL'
-import { useSkin } from '@hooks/useSkin'
-import { useNavbarType } from '@hooks/useNavbarType'
-import { useFooterType } from '@hooks/useFooterType'
-import { useNavbarColor } from '@hooks/useNavbarColor'
+import { useRTL } from '../../utility/hooks/useRTL'
+import { useSkin } from '../../utility/hooks/useSkin'
+import { useNavbarType } from '../../utility/hooks/useNavbarType'
+import { useFooterType } from '../../utility/hooks/useFooterType'
+import { useNavbarColor } from '../../utility/hooks/useNavbarColor'
 
 // ** Styles
-import '@styles/base/core/menu/menu-types/horizontal-menu.scss'
+import '../scss/base/core/menu/menu-types/horizontal-menu.scss'
 
 const HorizontalLayout = props => {
   // ** Props

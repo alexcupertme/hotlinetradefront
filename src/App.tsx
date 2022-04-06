@@ -1,15 +1,9 @@
-import React from 'react';
-import VerticalLayout from './layouts/VerticalLayout';
+import React from "react";
 
+import Router from "./router/Router";
 
-function App() {
-  return (
-    <div className="App">
-      <VerticalLayout>
-        priver
-      </VerticalLayout>
-    </div>
-  );
-}
+const App: React.FC = ({}): JSX.Element => {
+  return <Router />;
+};
 
 export default App;

@@ -1,7 +1,7 @@
 // @ts-nocheck 
 // ** React Imports
 import { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 
 // ** Store & Actions
 import { useSelector, useDispatch } from 'react-redux'
@@ -18,8 +18,8 @@ import { Navbar, Button } from 'reactstrap'
 import themeConfig from '../../configs/themeConfig'
 
 // ** Custom Components
-import Customizer from '@components/customizer'
-import ScrollToTop from '@components/scrolltop'
+import Customizer from '../../@core/components/customizer'
+import ScrollToTop from '../../@core/components/scrolltop'
 import FooterComponent from './components/footer'
 import NavbarComponent from './components/navbar'
 import SidebarComponent from './components/menu/vertical-menu'
@@ -32,9 +32,9 @@ import { useFooterType } from '../../utility/hooks/useFooterType'
 import { useNavbarColor } from '../../utility/hooks/useNavbarColor'
 
 // ** Styles
-import '@styles/base/core/menu/menu-types/vertical-menu.scss'
-import '@styles/base/core/menu/menu-types/vertical-overlay-menu.scss'
-import { useAppSelector } from '@src/hooks/useTypedSelector'
+import '../scss/base/core/menu/menu-types/vertical-menu.scss'
+import '../scss/base/core/menu/menu-types/vertical-overlay-menu.scss'
+import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector'
 
 const VerticalLayout = props => {
   // ** Props
@@ -53,7 +53,7 @@ const VerticalLayout = props => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   // ** Store Vars
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const layoutStore = useAppSelector(state => state.layout)
 
   // ** Update Window Width
@@ -77,11 +77,13 @@ const VerticalLayout = props => {
   const setIsHidden = val => dispatch(handleMenuHidden(val))
 
   //** This function will detect the Route Change and will hide the menu on menu item click
+
   useEffect(() => {
     if (menuVisibility && windowWidth < 1200) {
       setMenuVisibility(false)
     }
   }, [location])
+  
 
   //** Sets Window Size & Layout Props
   useEffect(() => {

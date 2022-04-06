@@ -12,7 +12,7 @@ import { Collapse, Badge } from 'reactstrap'
 import VerticalNavMenuItems from './VerticalNavMenuItems'
 
 // ** Utils
-import { hasActiveChild, removeChildren } from '@layouts/utils'
+import { hasActiveChild, removeChildren } from '../../../utils'
 
 const VerticalNavMenuGroup = ({
   item,

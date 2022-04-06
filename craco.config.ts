@@ -3,15 +3,6 @@ const path = require("path");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
-  // style: {
-  //   sass: {
-  //     loaderOptions: {
-  //       sassOptions: {
-  //         includePaths: ["node_modules", "src/assets"],
-  //       },
-  //     },
-  //   },
-  // },
   webpack: {
     alias: {
       "@src": path.resolve(__dirname, "src"),
@@ -25,11 +16,6 @@ module.exports = {
       "@hooks": path.resolve(__dirname, "src/utility/hooks"),
     },
     configure: {
-      // optimization: {
-      //   splitChunks: {
-      //     chunks: "all",
-      //   },
-      // },
       output: {
         path: path.resolve(__dirname, "dist"),
         filename: "index.js",

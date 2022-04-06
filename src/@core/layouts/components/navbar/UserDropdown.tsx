@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 // ** Custom Components
-import Avatar from '@components/avatar'
+import Avatar from '../../../components/avatar'
 
 // ** Utils
 // import { isUserLoggedIn } from '@utils'
@@ -16,7 +16,8 @@ import { User, Mail, CheckSquare, MessageSquare, Settings, CreditCard, HelpCircl
 import { UncontrolledDropdown, DropdownMenu, DropdownToggle, DropdownItem } from 'reactstrap'
 
 // ** Default Avatar Image
-import defaultAvatar from '@src/assets/images/portrait/small/avatar-s-11.jpg'
+import defaultAvatar from '../../../../assets/images/portrait/small/avatar-s-11.jpg'
+// import defaultAvatar from '@src/assets/images/portrait/small/avatar-s-11.jpg'
 
 const UserDropdown = () => {
   // ** State
