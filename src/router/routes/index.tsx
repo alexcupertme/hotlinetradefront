@@ -13,6 +13,10 @@ const Routes = [
     component: lazy(() => import('../../views/Home'))
   },
   {
+    path: '/admin',
+    component: lazy(() => import('../../views/Admin'))
+  },
+  {
     path: '/second-page',
     component: lazy(() => import('../../views/SecondPage'))
   },

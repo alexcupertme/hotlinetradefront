@@ -7,7 +7,7 @@ import axios from 'axios'
 import Chart from 'react-apexcharts'
 
 // ** Utils
-import { kFormatter } from '@utils'
+import { kFormatter } from '../../../../utility/Utils'
 
 // ** Reactstrap Imports
 import {

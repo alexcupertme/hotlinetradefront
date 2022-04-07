@@ -10,7 +10,7 @@ import classnames from 'classnames'
 import { UncontrolledTooltip } from 'reactstrap'
 
 // ** Custom Components Imports
-import Avatar from '@components/avatar'
+import Avatar from '../avatar'
 
 const AvatarGroup = props => {
   // ** Props

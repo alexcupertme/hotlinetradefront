@@ -7,7 +7,7 @@ import axios from 'axios'
 import { Users } from 'react-feather'
 
 // ** Custom Components
-import StatsWithAreaChart from '@components/widgets/stats/StatsWithAreaChart'
+import StatsWithAreaChart from '../../../../@core/components/widgets/stats/StatsWithAreaChart'
 
 const SubscribersGained = ({ kFormatter }) => {
   // ** State
