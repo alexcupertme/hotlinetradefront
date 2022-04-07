@@ -1,4 +1,4 @@
-forever stop frontend
+pm2 stop frontend
 pnpm i
 npm run build
-forever start -c "npm run start" ./ --uid "frontend"
+pm start --name frontend npm -- start
