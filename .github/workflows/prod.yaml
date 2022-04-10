@@ -3,7 +3,7 @@ name: testdev
 on:
   push:
     branches:
-      - lead
+      - master
 
 jobs:
   lint:
