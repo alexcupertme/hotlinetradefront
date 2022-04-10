@@ -9,7 +9,6 @@ import { ShoppingBag, PieChart, Send } from 'ts-react-feather-icons'
 //   )
 // }
 
-
 export default [
   {
     id: 'admin',
