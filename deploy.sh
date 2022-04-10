@@ -1,3 +1,3 @@
 pm2 stop frontend
 pnpm i
-npm run build
+sudo react-scripts build
