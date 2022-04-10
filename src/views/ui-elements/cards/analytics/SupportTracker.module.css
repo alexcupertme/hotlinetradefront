@@ -1,0 +1,10 @@
+.cust_tickets {
+  width: max-content;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ticket_wrapper {
+  width: max-content;
+  margin-right: 25px;
+}

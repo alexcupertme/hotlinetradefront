@@ -1,4 +1,4 @@
-import { Mail, Home } from 'ts-react-feather-icons'
+import { ShoppingBag, PieChart, Send } from 'ts-react-feather-icons'
 
 // export const Menu = () => {
 //   return (
@@ -11,21 +11,21 @@ import { Mail, Home } from 'ts-react-feather-icons'
 
 export default [
   {
-    id: 'home',
-    title: 'Home',
-    icon: <Home size={20} />,
-    navLink: '/home'
-  },
-  {
-    id: 'secondPage',
-    title: 'Second Page',
-    icon: <Mail size={20} />,
-    navLink: '/second-page'
-  },
-  {
     id: 'admin',
-    title: 'Admin',
-    icon: <Mail size={20} />,
+    title: 'Аналитика',
+    icon: <PieChart size={20} />,
     navLink: '/admin'
-  }
+  },
+  {
+    id: 'stores',
+    title: 'Магазины',
+    icon: <ShoppingBag size={20} />,
+    navLink: '/admin/stores'
+  },
+  {
+    id: 'payments',
+    title: 'Платежные системы',
+    icon: <Send size={20} />,
+    navLink: '/admin/payments'
+  }, 
 ]

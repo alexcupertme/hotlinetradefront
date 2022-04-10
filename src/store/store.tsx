@@ -9,12 +9,14 @@ import {
 } from 'redux-persist';
 import layout from './layout'
 import navbar from './navbar'
+import invoice from './invoice'
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const rootReducer = combineReducers({
   layout,
-  navbar
+  navbar,
+  invoice
 });
 
 const persistConfig = {

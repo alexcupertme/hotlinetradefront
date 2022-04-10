@@ -3,9 +3,10 @@
 //Template config options
 const themeConfig = {
   app: {
-    appName: 'Vuexy',
+    appName: 'HOTLINE',
+    appSubName: 'TRADE',
     // appLogoImage: require('@src/assets/images/logo/logo.svg').default
-    appLogoImage: require('../assets/images/logo/logo.svg').default
+    appLogoImage: require('../assets/images/logo/logo-our.svg').default
   },
   layout: {
     isRTL: false,

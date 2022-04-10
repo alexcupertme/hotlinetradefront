@@ -45,9 +45,9 @@ const Earnings = ({ success }) => {
             total: {
               show: true,
               offsetY: 15,
-              label: 'App',
+              label: 'От п.мес',
               formatter() {
-                return '53%'
+                return '38%'
               }
             }
           }
@@ -95,12 +95,11 @@ const Earnings = ({ success }) => {
       <CardBody>
         <Row>
           <Col xs='6'>
-            <CardTitle className='mb-1'>Earnings</CardTitle>
-            <div className='font-small-2'>This Month</div>
-            <h5 className='mb-1'>$4055.56</h5>
+            <CardTitle className='mb-1'>Оборот</CardTitle>
+            <div className='font-small-2'>За этот месяц</div>
+            <h5 className='mb-1'>2 650 350₽</h5>
             <CardText className='text-muted font-small-2'>
-              <span className='fw-bolder'>68.2%</span>
-              <span> more earnings than last month.</span>
+              <span> Полный оборот с начала текущего месяца на сервисе.</span>
             </CardText>
           </Col>
           <Col xs='6'>

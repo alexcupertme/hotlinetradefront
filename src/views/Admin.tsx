@@ -4,15 +4,7 @@ import React, { useContext } from "react";
 import s from "./.module.css";
 import Avatar from "../@core/components/avatar";
 import AvatarGroup from "../@core/components/avatar-group";
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  CardTitle,
-  Col,
-  List,
-  Row,
-} from "reactstrap";
+import { Col, Row } from "reactstrap";
 
 import CardCongratulations from "./ui-elements/cards/advance/CardCongratulations";
 import SubscribersGained from "./ui-elements/cards/statistics/SubscribersGained";
@@ -20,13 +12,12 @@ import { kFormatter } from "../utility/Utils";
 import OrdersReceived from "./ui-elements/cards/statistics/OrdersReceived";
 import AvgSessions from "./ui-elements/cards/analytics/AvgSessions";
 import SupportTracker from "./ui-elements/cards/analytics/SupportTracker";
-import Timeline from "../@core/components/timeline";
-import Sales from "./ui-elements/cards/analytics/Sales";
-import CardAppDesign from "./ui-elements/cards/advance/CardAppDesign";
 
 // ** Images
 import jsonImg from "../assets/images/icons/json.png";
 import ceo from "../assets/images/portrait/small/avatar-s-9.jpg";
+import Earnings from "./ui-elements/cards/analytics/Earnings";
+import InvoiceList from "./apps/invoice/list";
 
 const Admin: React.FC = ({}): JSX.Element => {
   // ** Context
@@ -124,9 +115,9 @@ const Admin: React.FC = ({}): JSX.Element => {
           <CardCongratulations />
         </Col>
         <Col lg="3" sm="6">
-          <OrdersReceived
+          <SubscribersGained
             kFormatter={kFormatter}
-            warning={colors.warning.main}
+            warning={colors.primary.main}
           />
         </Col>
         <Col lg="3" sm="6">
@@ -141,31 +132,24 @@ const Admin: React.FC = ({}): JSX.Element => {
           <AvgSessions primary={colors.primary.main} />
         </Col>
         <Col lg="6" xs="12">
-          <SupportTracker
-            primary={colors.primary.main}
-            danger={colors.danger.main}
-          />
+          <Row>
+            <Col>
+              <Earnings success={colors.success.main} />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <SupportTracker
+                primary={colors.primary.main}
+                danger={colors.danger.main}
+              />
+            </Col>
+          </Row>
         </Col>
       </Row>
-      <Row className="match-height">
-        <Col lg="4" xs="12">
-          <Card className="card-user-timeline">
-            <CardHeader>
-              <div className="d-flex align-items-center">
-                <List className="user-timeline-title-icon" />
-                <CardTitle tag="h4">User Timeline</CardTitle>
-              </div>
-            </CardHeader>
-            <CardBody>
-              <Timeline className="ms-50 mb-0" data={data} />
-            </CardBody>
-          </Card>
-        </Col>
-        <Col lg="4" md="6" xs="12">
-          <Sales primary={colors.primary.main} info={colors.info.main} />
-        </Col>
-        <Col lg="4" md="6" xs="12">
-          <CardAppDesign />
+      <Row>
+        <Col xs="12">
+          <InvoiceList />
         </Col>
       </Row>
     </div>
