@@ -1,2 +1,2 @@
 pnpm i
-sudo react-scripts build
+npm run build
