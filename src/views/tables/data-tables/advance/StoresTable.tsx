@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ** React Imports
 import { useState, Fragment } from "react";
 
@@ -408,7 +409,7 @@ const StoresTable = () => {
             sortIcon={<ChevronDown size={10} />}
             paginationDefaultPage={currentPage + 1}
             paginationComponent={CustomPagination}
-            data={dataToRender()}
+            // data={dataToRender()}
           />
         </div>
       </Card>
