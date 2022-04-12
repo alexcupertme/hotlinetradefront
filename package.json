@@ -92,6 +92,7 @@
 		"shepherd.js": "^9.0.0",
 		"sortablejs": "^1.15.0",
 		"styled-components": "^5.3.5",
+		"node-sass": "^7.0.1",
 		"sweetalert2": "^11.4.8",
 		"sweetalert2-react-content": "^4.2.0",
 		"swiper": "^8.0.7",
