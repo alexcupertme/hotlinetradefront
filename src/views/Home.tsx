@@ -105,7 +105,7 @@ const Home = () => {
     <div>
       <Card>
         <CardHeader>
-          <CardTitle>Kick start your project 🚀ыыыыыыы</CardTitle>
+          <CardTitle>Kick start your project</CardTitle>
         </CardHeader>
         <CardBody>
           <CardText>All the best for your new project.</CardText>

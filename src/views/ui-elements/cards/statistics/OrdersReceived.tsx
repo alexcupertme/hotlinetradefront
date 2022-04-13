@@ -10,7 +10,7 @@ import { Package } from "react-feather";
 import StatsWithAreaChart from "../../../../@core/components/widgets/stats/StatsWithAreaChart";
 
 const OrdersReceived = ({ kFormatter, warning }) => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState(null);
 
   const db_data = {
     ordersRecevied: {
@@ -26,10 +26,13 @@ const OrdersReceived = ({ kFormatter, warning }) => {
     },
   };
 
+
+
   useEffect(() => {
     setData(db_data.ordersRecevied);
   }, []);
-
+  
+  debugger
   const options = {
     chart: {
       id: "revenue",
@@ -79,16 +82,16 @@ const OrdersReceived = ({ kFormatter, warning }) => {
     },
   };
 
-  return (
+  return data !== null ? (
     <StatsWithAreaChart
       icon={<Package size={21} />}
       color="warning"
-      stats={kFormatter(db_data.ordersRecevied.analyticsData.orders)}
+      stats={kFormatter(data.analyticsData.orders)}
       statTitle="Магазинов"
       options={options}
-      series={db_data.ordersRecevied.series}
+      series={data.series}
       type="area"
     />
-  );
+  ) : null;
 };
 export default OrdersReceived;
