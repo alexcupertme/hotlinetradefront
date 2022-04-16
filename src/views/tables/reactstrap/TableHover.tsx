@@ -1,14 +1,14 @@
 // ** Custom Components
-import AvatarGroup from '@components/avatar-group'
+import AvatarGroup from '../../../@core/components/avatar-group'
 
 // ** Images
-import react from '@src/assets/images/icons/react.svg'
-import vuejs from '@src/assets/images/icons/vuejs.svg'
-import angular from '@src/assets/images/icons/angular.svg'
-import bootstrap from '@src/assets/images/icons/bootstrap.svg'
-import avatar1 from '@src/assets/images/portrait/small/avatar-s-5.jpg'
-import avatar2 from '@src/assets/images/portrait/small/avatar-s-6.jpg'
-import avatar3 from '@src/assets/images/portrait/small/avatar-s-7.jpg'
+import react from '../../../assets/images/icons/react.svg'
+import vuejs from '../../../assets/images/icons/vuejs.svg'
+import angular from '../../../assets/images/icons/angular.svg'
+import bootstrap from '../../../assets/images/icons/bootstrap.svg'
+import avatar1 from '../../../assets/images/portrait/small/avatar-s-5.jpg'
+import avatar2 from '../../../assets/images/portrait/small/avatar-s-6.jpg'
+import avatar3 from '../../../assets/images/portrait/small/avatar-s-7.jpg'
 
 // ** Icons Imports
 import { MoreVertical, Edit, Trash } from 'react-feather'

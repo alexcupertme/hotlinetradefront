@@ -31,8 +31,7 @@ const OrdersReceived = ({ kFormatter, warning }) => {
   useEffect(() => {
     setData(db_data.ordersRecevied);
   }, []);
-  
-  debugger
+
   const options = {
     chart: {
       id: "revenue",
