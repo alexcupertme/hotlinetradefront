@@ -50,8 +50,8 @@ export default [
     navLink: "/withdraw",
   },
   {
-    id: "socials",
-    title: "Интеграции",
+    id: "settings",
+    title: "Настройки",
     icon: <Send size={20} />,
     navLink: "/user/settings",
   },
