@@ -26,7 +26,7 @@ const Payments: React.FC = ({}): JSX.Element => {
     <>
       <Row>
         <div className={s.head_content}>
-          <div className={s.payments_title}>Редактирование ПС на вывод</div>
+          <div className={s.payments_title}>Редактирование ПС на вывод.</div>
           <RippleButton
             color="relief-primary"
             onClick={() => setCenteredModal(!centeredModal)}
