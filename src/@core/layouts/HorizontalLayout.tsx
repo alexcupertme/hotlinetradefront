@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 // ** Store & Actions
 import { useSelector, useDispatch } from 'react-redux'
-import { handleMenuHidden, handleContentWidth } from '../../store/layout'
+import { handleMenuHidden, handleContentWidth } from '../../store/slices/layout'
 
 // ** Third Party Components
 import classnames from 'classnames'

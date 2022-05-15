@@ -28,7 +28,7 @@ const StatsWithAreaChart = (props) => {
     ...rest
   } = props;
   return (
-    <Card {...rest}>
+    <Card {...rest} style={{overflow: "hidden"}}>
       <CardBody
         className={classnames("pb-0", {
           [className]: className,

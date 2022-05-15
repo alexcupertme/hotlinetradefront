@@ -1,0 +1,38 @@
+.nav_item {
+  width: max-content;
+  display: flex;
+  align-items: center;
+}
+
+.nav_link {
+  display: flex;
+  align-items: center;
+}
+
+span {
+  width: max-content;
+}
+
+.slide_right {
+  display: none;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.slide_left {
+  display: none;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.slide_left.active {
+  display: block;
+}
+
+.slide_right.active {
+  display: block;
+}
+
+.links_wrapper {
+  display: flex;
+}

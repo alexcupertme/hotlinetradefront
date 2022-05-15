@@ -4,7 +4,7 @@
 
 // ** Store Imports
 import { useDispatch, useSelector } from 'react-redux'
-import { handleLayout, handleLastLayout } from '../../store/layout'
+import { handleLayout, handleLastLayout } from '../../store/slices/layout'
 
 export const useLayout = () => {
   // ** Hooks

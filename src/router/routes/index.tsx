@@ -9,12 +9,12 @@ const DefaultRoute = "/admin";
 // ** Merge Routes
 const Routes = [
   {
-    path: "/withdraw",
-    component: lazy(() => import("../../views/Withdraw")),
+    path: "/admin/user/settings",
+    component: lazy(() => import("../../views/admin/user")),
   },
   {
-    path: "/user/settings",
-    component: lazy(() => import("../../views/user/settings/Settings")),
+    path: "/admin/withdraw",
+    component: lazy(() => import("../../views/admin/withdraw")),
   },
   {
     path: "/admin/stores",
@@ -25,16 +25,73 @@ const Routes = [
     component: lazy(() => import("../../views/admin/payments")),
   },
   {
-    path: "/admin",
-    component: lazy(() => import("../../views/Admin")),
+    path: "/admin/users",
+    component: lazy(() => import("../../views/admin/users")),
   },
   {
-    path: "/second-page",
-    component: lazy(() => import("../../views/SecondPage")),
+    path: "/withdraw",
+    component: lazy(() => import("../../views/Withdraw")),
+  },
+  {
+    path: "/ref",
+    component: lazy(() => import("../../views/user/ref/Ref")),
+  },
+  {
+    path: "/store",
+    component: lazy(() => import("../../views/user/store/store")),
+  },
+  {
+    path: "/user/settings",
+    component: lazy(() => import("../../views/user/settings/Settings")),
+  },
+  //exact be careful
+  {
+    path: "/admin",
+    component: lazy(() => import("../../views/admin/Admin")),
   },
   {
     path: "/login",
-    component: lazy(() => import("../../views/Login")),
+    component: lazy(() => import("../../views/auth/LoginCover")),
+    layout: "BlankLayout",
+    meta: {
+      authRoute: true,
+    },
+  },
+  {
+    path: "/register",
+    component: lazy(() => import("../../views/auth/RegisterCover")),
+    layout: "BlankLayout",
+    meta: {
+      authRoute: true,
+    },
+  },
+  {
+    path: "/verify-confirm",
+    component: lazy(() => import("../../views/auth/VerifyCheckCover")),
+    layout: "BlankLayout",
+    meta: {
+      authRoute: true,
+    },
+  },
+  {
+    path: "/verify",
+    component: lazy(() => import("../../views/auth/VerifyEmailCover")),
+    layout: "BlankLayout",
+    meta: {
+      authRoute: true,
+    },
+  },
+  {
+    path: "/reset-password",
+    component: lazy(() => import("../../views/auth/ResetPasswordCover")),
+    layout: "BlankLayout",
+    meta: {
+      authRoute: true,
+    },
+  },
+  {
+    path: "/forgot-password",
+    component: lazy(() => import("../../views/auth/ForgotPasswordCover")),
     layout: "BlankLayout",
     meta: {
       authRoute: true,

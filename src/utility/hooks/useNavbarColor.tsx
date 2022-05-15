@@ -1,6 +1,6 @@
 // @ts-nocheck 
 // ** Store Imports
-import { handleNavbarColor } from '../../store/layout'
+import { handleNavbarColor } from '../../store/slices/layout'
 import { useDispatch, useSelector } from 'react-redux'
 
 export const useNavbarColor = () => {

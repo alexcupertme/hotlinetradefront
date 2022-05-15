@@ -12,21 +12,25 @@ import {
   ModalFooter,
   ModalHeader,
   Row,
+  Card,
+  CardHeader,
 } from "reactstrap";
 import TableStriped from "../tables/reactstrap/TableStriped";
 import s from "../../styles/Payments.module.css";
 import { RippleButton } from "../../@core/components/ripple-button";
 
-import SliderScalePips from "../extensions/sliders/SliderScalePips";
+import SliderScalePips from "../../supercomponents/extensions/sliders/SliderScalePips";
+import TableBasic from "../../supercomponents/tables/reactstrap/TableBasic";
 
 const Payments: React.FC = ({}): JSX.Element => {
   const [centeredModal, setCenteredModal] = useState(false);
-  // @ts-nocheck
   return (
     <>
       <Row>
         <div className={s.head_content}>
-          <div className={s.payments_title}>Редактирование ПС на вывод</div>
+          <h2 
+          // className={s.payments_title}
+          >Редактирование ПС на вывод</h2>
           <RippleButton
             color="relief-primary"
             onClick={() => setCenteredModal(!centeredModal)}
@@ -85,7 +89,12 @@ const Payments: React.FC = ({}): JSX.Element => {
       </Row>
       <Row>
         <Col>
-          <TableStriped />
+          <Card>
+            <CardHeader>
+              <h4 className="h4" style={{margin: "0"}}>Платежные системы</h4>
+            </CardHeader>
+            <TableBasic />
+          </Card>
         </Col>
       </Row>
     </>

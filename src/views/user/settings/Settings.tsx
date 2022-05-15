@@ -1,26 +1,14 @@
-import React, { useState } from "react";
-import { Breadcrumb, BreadcrumbItem, Col, Row } from "reactstrap";
-import s from "../../../styles/Settings.module.css";
-import { User, Home } from "ts-react-feather-icons";
-
+import React from "react";
+import { Col, Row } from "reactstrap";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { Navbar } from "./Navbar";
+import { UserSettingsNavbar } from "../../../components/UserSettingsNavbar";
 
-import Social from "./Social";
-import Security from "./Security";
-import Common from "./Common";
-import Billing from "./Billing";
-import Notifications from "./Notifications";
-import { Breadcrumbs } from "./Breadcrumbs";
+import Social from "./settings/Social";
+import Security from "./settings/Security";
+import Common from "./settings/Common";
 
 const Settings: React.FC = ({}): JSX.Element => {
-	const [active, setActive] = useState("1");
-
-	const toggle = (tab) => {
-		setActive(tab);
-	};
-
 	return (
 		<>
 			<Row>
@@ -28,28 +16,15 @@ const Settings: React.FC = ({}): JSX.Element => {
 					<Router>
 						<Switch>
 							<Route path="/user/settings/socials">
-								<Breadcrumbs />
-								<Navbar />
+								<UserSettingsNavbar curState="3"/>
 								<Social />
 							</Route>
-							<Route path="/user/settings/billing">
-								<Breadcrumbs />
-								<Navbar />
-								<Billing />
-							</Route>
 							<Route path="/user/settings/security">
-								<Breadcrumbs />
-								<Navbar />
+								<UserSettingsNavbar curState="2"/>
 								<Security />
 							</Route>
-							<Route path="/user/settings/notifications">
-								<Breadcrumbs />
-								<Navbar />
-								<Notifications />
-							</Route>
 							<Route path="/user/settings/">
-								<Breadcrumbs />
-								<Navbar />
+								<UserSettingsNavbar curState="1"/>
 								<Common />
 							</Route>
 						</Switch>

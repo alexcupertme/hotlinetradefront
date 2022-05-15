@@ -1,6 +1,6 @@
 // @ts-nocheck 
 // ** Store Imports
-import { handleNavbarType } from '../../store/layout'
+import { handleNavbarType } from '../../store/slices/layout'
 import { useDispatch, useSelector } from 'react-redux'
 
 export const useNavbarType = () => {

@@ -4,8 +4,6 @@ import React from "react";
 import ReactSelect from "react-select";
 import {
   Alert,
-  Breadcrumb,
-  BreadcrumbItem,
   Button,
   Card,
   CardHeader,
@@ -23,7 +21,7 @@ import s from "../styles/Withdraw.module.css";
 import { RippleButton } from "../@core/components/ripple-button";
 import TableStriped from "./tables/reactstrap/TableStriped";
 import TableHover from "./tables/reactstrap/TableHover";
-import WithdrawTable from "./tables/reactstrap/WithdrawTable";
+import WithdrawTable from "./../supercomponents/tables/reactstrap/WithdrawTable";
 
 const Withdraw: React.FC = ({}): JSX.Element => {
   return (
@@ -32,13 +30,7 @@ const Withdraw: React.FC = ({}): JSX.Element => {
         <Row>
           <Col>
             <div className={s.page_nav}>
-              <div className={s.page_title}>Вывод средств</div>
-              <Breadcrumb listClassName="breadcrumb-chevron">
-                <BreadcrumbItem>
-                  <a href="#">Home</a>
-                </BreadcrumbItem>
-                <BreadcrumbItem active>Library</BreadcrumbItem>
-              </Breadcrumb>
+              <h2 className={s.page_title}>Вывод средств</h2>
             </div>
           </Col>
         </Row>
