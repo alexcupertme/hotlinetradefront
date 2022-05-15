@@ -13,7 +13,7 @@ import {
 } from "reactstrap";
 import { Users, Eye, Package } from "ts-react-feather-icons";
 import { kFormatter } from "../utility/Utils";
-import OrdersReceived from "./ui-elements/cards/statistics/OrdersReceived";
+import OrdersReceived from "supercomponents/ui-elements/cards/statistics/OrdersReceived";
 
 const data = {
   subscribers_gained: {

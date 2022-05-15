@@ -1,4 +1,4 @@
-import { ShoppingBag, PieChart, Send } from "ts-react-feather-icons";
+import { ShoppingBag, PieChart, Send, Users, ShoppingCart } from "ts-react-feather-icons";
 
 // export const Menu = () => {
 //   return (
@@ -33,7 +33,7 @@ export default [
         title: "Создать магазин",
         icon: <ShoppingBag size={10} />,
         navLink: "/admin/stores?new=true",
-        externalLink: true,
+        // externalLink: true,
       },
     ],
   },
@@ -44,10 +44,40 @@ export default [
     navLink: "/admin/payments",
   },
   {
+    id: "adminWithdraw",
+    title: "Выводы",
+    icon: <Send size={20} />,
+    navLink: "/admin/withdraw",
+  },
+  {
+    id: "users",
+    title: "Пользователи",
+    icon: <Users size={20} />,
+    navLink: "/admin/users",
+  },
+  {
+    id: "user",
+    title: "Пользователь",
+    icon: <Users size={20} />,
+    navLink: "/admin/user/settings/stats",
+  },
+  {
     id: "withdraw",
     title: "Вывод средств",
     icon: <Send size={20} />,
     navLink: "/withdraw",
+  },
+  {
+    id: "store",
+    title: "Магазин",
+    icon: <ShoppingCart size={20} />,
+    navLink: "/store/main",
+  },
+  {
+    id: "ref",
+    title: "Реферальная система",
+    icon: <Send size={20} />,
+    navLink: "/ref",
   },
   {
     id: "settings",

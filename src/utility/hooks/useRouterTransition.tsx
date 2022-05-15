@@ -1,6 +1,6 @@
 // @ts-nocheck 
 // ** Store Imports
-import { handleRouterTransition } from '../../store/layout'
+import { handleRouterTransition } from '../../store/slices/layout'
 import { useDispatch, useSelector } from 'react-redux'
 
 export const useRouterTransition = () => {

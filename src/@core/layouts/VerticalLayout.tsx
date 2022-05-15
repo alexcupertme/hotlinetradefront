@@ -1,11 +1,11 @@
 // @ts-nocheck 
 // ** React Imports
 import { useState, useEffect } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 // ** Store & Actions
 import { useSelector, useDispatch } from 'react-redux'
-import { handleMenuCollapsed, handleContentWidth, handleMenuHidden } from '../../store/layout'
+import { handleMenuCollapsed, handleContentWidth, handleMenuHidden } from '../../store/slices/layout'
 
 // ** Third Party Components
 import classnames from 'classnames'

@@ -7,16 +7,19 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import layout from './layout'
-import navbar from './navbar'
-import invoice from './invoice'
+import layout from './slices/layout'
+import navbar from './slices/navbar'
+import invoice from './slices/invoice'
+import auth from './slices/auth'
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import logger from 'redux-logger';
 
 const rootReducer = combineReducers({
   layout,
   navbar,
-  invoice
+  invoice,
+  auth
 });
 
 const persistConfig = {
@@ -30,15 +33,15 @@ const store: Store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+      serializableCheck: false
+      // {
+        // ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],  
+      // },
+    }).concat(logger),
 })
 
-
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 export const persistor = persistStore(store);
 export default store;

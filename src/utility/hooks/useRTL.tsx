@@ -3,7 +3,7 @@
 import { useEffect } from 'react'
 
 // ** Store & Actions
-import { handleRTL } from '../../store/layout'
+import { handleRTL } from '../../store/slices/layout'
 import { useDispatch, useSelector } from 'react-redux'
 
 export const useRTL = () => {

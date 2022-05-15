@@ -10,7 +10,7 @@ const themeConfig = {
   },
   layout: {
     isRTL: false,
-    skin: 'dark', // light, dark, bordered, semi-dark
+    skin: 'light', // light, dark, bordered, semi-dark
     routerTransition: 'fadeIn', // fadeIn, fadeInLeft, zoomIn, none or check this for more transition https://animate.style/
     type: 'vertical', // vertical, horizontal
     contentWidth: 'boxed', // full, boxed
@@ -26,7 +26,7 @@ const themeConfig = {
     footer: {
       type: 'static' // static, sticky, hidden
     },
-    customizer: false,
+    customizer: true,
     scrollTop: true // Enable scroll to top button
   }
 }
