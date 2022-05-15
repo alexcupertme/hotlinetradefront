@@ -1,6 +1,7 @@
 export interface IUser {
   token: string;
   verified: boolean,
+  mailSended: boolean,
   isLoading: boolean;
   error: string;
 }

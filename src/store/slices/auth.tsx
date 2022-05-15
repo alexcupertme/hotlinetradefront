@@ -9,6 +9,7 @@ import { loginThunk, registerThunk, requestVerifyThunk, verifyThunk } from "../t
 const initialState: IUser = {
   token: "",
   verified: false,
+  mailSended: false,
   isLoading: false,
   error: "",
 };
@@ -20,7 +21,6 @@ export const authSlice: Slice = createSlice({
   extraReducers: {
     [loginThunk.fulfilled.type]: (state, action) => {
       state.token = action.payload.data.token;
-      state.verified = false
       state.isLoading = false;
       state.error = "";
     },
@@ -33,7 +33,6 @@ export const authSlice: Slice = createSlice({
     },
     // --------------------
     [registerThunk.fulfilled.type]: (state, action) => {
-      state.verified = false
       state.isLoading = false;
       state.error = "";
     },
@@ -46,7 +45,7 @@ export const authSlice: Slice = createSlice({
     },
     // --------------------
     [verifyThunk.fulfilled.type]: (state, action) => {
-      state.verified = action.payload.success;
+      state.verified = action.payload.data.success;
       state.isLoading = false;
       state.error = "";
     },
@@ -54,12 +53,13 @@ export const authSlice: Slice = createSlice({
       state.isLoading = true;
     },
     [verifyThunk.rejected.type]: (state, action) => {
+      state.verified = false
       state.isLoading = false;
       state.error = action.error.message;
     },
     // --------------------
     [requestVerifyThunk.fulfilled.type]: (state, action) => {
-      state.verified = action.payload.success;
+      state.mailSended = action.payload.data.success;
       state.isLoading = false;
       state.error = "";
     },

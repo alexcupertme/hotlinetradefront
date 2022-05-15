@@ -35,7 +35,7 @@ const store: Store = configureStore({
     getDefaultMiddleware({
       serializableCheck: false
       // {
-        // ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],  
+      //   ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],  
       // },
     }).concat(logger),
 })
