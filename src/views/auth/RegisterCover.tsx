@@ -28,8 +28,13 @@ import {
 // ** Styles
 import "../../@core/scss/react/pages/page-authentication.scss";
 import { useEffect, useState } from "react";
-import { useAppDispatch } from "../../hooks/useTypedSelector";
-import { registerThunk } from "../../store/thunks/authThunk";
+import { useAppDispatch, useAppSelector } from "../../hooks/useTypedSelector";
+import {
+  loginThunk,
+  registerThunk,
+  requestVerifyThunk,
+  verifyThunk,
+} from "../../store/thunks/authThunk";
 import { IUserData } from "../../types/types";
 
 const RegisterCover = () => {
@@ -37,6 +42,7 @@ const RegisterCover = () => {
   const { skin } = useSkin();
 
   const dispatch = useAppDispatch();
+  const token = useAppSelector((state) => state.auth.token);
 
   const illustration =
       skin === "dark" ? "register-v2-dark.svg" : "register-v2.svg",
@@ -157,9 +163,9 @@ const RegisterCover = () => {
     }
   }, [passwordRepeat, password]);
 
-  const history = useHistory()
+  const history = useHistory();
 
-  const registerHandler = () => {
+  const registerHandler = async () => {
     if (
       !(emailError.length > 0) &&
       !(passwordError.length > 0) &&
@@ -168,8 +174,11 @@ const RegisterCover = () => {
       !(lastNameError.length > 0)
     ) {
       // @ts-ignore
-      dispatch(registerThunk(authData));
-      history.push("/verify")
+      await dispatch(await registerThunk(authData));
+      // @ts-ignore
+      await dispatch(await loginThunk({ email: authData.email, password: authData.password })
+      );
+      history.push("/verify");
     }
   };
 

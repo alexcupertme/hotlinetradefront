@@ -4,7 +4,7 @@ import { IUser } from "../../types/types";
 
 // ** ThemeConfig Import
 import themeConfig from "../../configs/themeConfig";
-import { loginThunk, registerThunk, verifyThunk } from "../thunks/authThunk";
+import { loginThunk, registerThunk, requestVerifyThunk, verifyThunk } from "../thunks/authThunk";
 
 const initialState: IUser = {
   token: "",
@@ -20,6 +20,7 @@ export const authSlice: Slice = createSlice({
   extraReducers: {
     [loginThunk.fulfilled.type]: (state, action) => {
       state.token = action.payload.data.token;
+      state.verified = false
       state.isLoading = false;
       state.error = "";
     },
@@ -30,8 +31,9 @@ export const authSlice: Slice = createSlice({
       state.isLoading = false;
       state.error = action.error.message;
     },
+    // --------------------
     [registerThunk.fulfilled.type]: (state, action) => {
-      state.token = action.payload.data.token;
+      state.verified = false
       state.isLoading = false;
       state.error = "";
     },
@@ -42,9 +44,9 @@ export const authSlice: Slice = createSlice({
       state.isLoading = false;
       state.error = action.error.message;
     },
-
+    // --------------------
     [verifyThunk.fulfilled.type]: (state, action) => {
-      state.verified = action.payload.data.success;
+      state.verified = action.payload.success;
       state.isLoading = false;
       state.error = "";
     },
@@ -52,6 +54,19 @@ export const authSlice: Slice = createSlice({
       state.isLoading = true;
     },
     [verifyThunk.rejected.type]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.error.message;
+    },
+    // --------------------
+    [requestVerifyThunk.fulfilled.type]: (state, action) => {
+      state.verified = action.payload.success;
+      state.isLoading = false;
+      state.error = "";
+    },
+    [requestVerifyThunk.pending.type]: (state, action) => {
+      state.isLoading = true;
+    },
+    [requestVerifyThunk.rejected.type]: (state, action) => {
       state.isLoading = false;
       state.error = action.error.message;
     },
