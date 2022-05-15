@@ -27,7 +27,9 @@ const VerifyCheckCover = () => {
 
   // -------------
 
-  const [verified, setVerified] = useState(false);
+  const [verify, setVerify] = useState(null);
+
+  
 
   const useQuery = () => {
     const { search } = useLocation();
@@ -38,19 +40,24 @@ const VerifyCheckCover = () => {
   let query = useQuery();
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
+  const verif = useAppSelector((state) => state.auth.verified)
+
+  const verifyHandler = async () => {
     const token = query.get("token");
     // @ts-ignore
-    dispatch(verifyThunk(token));
+    await dispatch(await verifyThunk(token));
+  };
+
+  useEffect(() => {
+    verifyHandler();
   }, []);
 
-  setVerified(useAppSelector((state) => state.auth.verified));
+  useEffect(() => {
+    console.log(verif)
+    setVerify(verif)
+  }, [verif])
 
-  return (
-    <>
-      verified ? <VerifiedEmailCover /> : <DeclinedEmailCover />
-    </>
-  );
+  return <>{verify ? <VerifiedEmailCover /> : <DeclinedEmailCover />}</>;
 };
 
 export default VerifyCheckCover;

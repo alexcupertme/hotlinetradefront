@@ -10,6 +10,7 @@ import logo from "../../../assets/images/logo/logo-our.svg";
 
 // ** Styles
 import "../../../@core/scss/base/pages/authentication.scss";
+import { useAppDispatch, useAppSelector } from "../../../hooks/useTypedSelector";
 
 const DeclinedEmailCover = () => {
   // ** Hooks
@@ -20,6 +21,14 @@ const DeclinedEmailCover = () => {
         ? "verify-email-illustration-dark.svg"
         : "verify-email-illustration.svg",
     source = require(`../../../assets/images/pages/${illustration}`);
+
+  const dispatch = useAppDispatch()
+
+  const token = useAppSelector(state => state.auth.token)
+
+  const requestVerifyMail = () => {
+    dispatch(requestVerifyThunk(token))
+  }
 
   return (
     <div className="auth-wrapper auth-cover">
@@ -60,7 +69,7 @@ const DeclinedEmailCover = () => {
             <CardText className="mb-2">
               Ваша ссылка для активации почты истекла
             </CardText>
-            <Button block tag={Link} to="/verify" color="primary">
+            <Button block tag={Link} to="/verify" onClick={requestVerifyMail} color="primary">
               Отправить еще раз
             </Button>
           </Col>

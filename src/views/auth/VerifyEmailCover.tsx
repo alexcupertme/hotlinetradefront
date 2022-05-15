@@ -1,4 +1,3 @@
-// @ts-nocheck
 // ** React Imports
 import { Link } from "react-router-dom";
 import { useSkin } from "../../utility/hooks/useSkin";
@@ -10,6 +9,9 @@ import logo from "../../assets/images/logo/logo-our.svg";
 
 // ** Styles
 import "../../@core/scss/base/pages/authentication.scss";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/useTypedSelector";
+import { requestVerifyThunk } from "../../store/thunks/authThunk";
 
 const VerifyEmailCover = () => {
   // ** Hooks
@@ -20,6 +22,20 @@ const VerifyEmailCover = () => {
         ? "verify-email-illustration-dark.svg"
         : "verify-email-illustration.svg",
     source = require(`../../assets/images/pages/${illustration}`);
+
+  const dispatch = useAppDispatch();
+  const token = useAppSelector((state) => state.auth.token);
+
+  const requestVerifyMail = () => {
+    if (token.length > 2) {
+      // @ts-ignore
+      dispatch(requestVerifyThunk(token));
+    }
+  };
+
+  useEffect(() => {
+    requestVerifyMail()
+  }, [token]);
 
   return (
     <div className="auth-wrapper auth-cover">
@@ -58,13 +74,13 @@ const VerifyEmailCover = () => {
               Подтверждение по Email
             </CardTitle>
             <CardText className="mb-2 pb-2 border-bottom">
-              Ссылка на активацию вашего аккаунта отправлена на: 
-              <span className="fw-bolder"> hello@pixinvent.com</span>. Пожалуйста
-              перейдите по ссылке чтобы продолжить.
+              Ссылка на активацию вашего аккаунта отправлена на:
+              <span className="fw-bolder"> hello@pixinvent.com</span>.
+              Пожалуйста перейдите по ссылке чтобы продолжить.
             </CardText>
             <p className="text-center mt-2">
               <span>Не получили письмо? </span>
-              <a href="/" onClick={(e) => e.preventDefault()}>
+              <a href="/" onClick={requestVerifyMail}>
                 <span>Отправить еще раз</span>
               </a>
             </p>
