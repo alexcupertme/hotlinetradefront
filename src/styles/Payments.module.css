@@ -1,0 +1,28 @@
+.head_content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.payments_title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+  color: #5e5873;
+}
+
+.input_label {
+  margin-top: 10px;
+  margin-bottom: 7px;
+}
+
+.switch_wrap {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.label_wrap {
+  margin-top: 6px;
+}
