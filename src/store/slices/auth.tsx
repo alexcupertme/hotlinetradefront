@@ -45,7 +45,7 @@ export const authSlice: Slice = createSlice({
     },
     // --------------------
     [verifyThunk.fulfilled.type]: (state, action) => {
-      state.verified = action.payload.data.success;
+      state.verified = action.payload.data.success
       state.isLoading = false;
       state.error = "";
     },

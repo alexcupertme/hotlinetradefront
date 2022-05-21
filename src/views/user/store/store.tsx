@@ -85,6 +85,10 @@ const Store: React.FC = ({}): JSX.Element => {
                 <UserStoreNav curState="13" />
                 <Appearance />
               </Route>
+              <Route path="/store/payments">
+                <UserStoreNav curState="14" />
+                <Appearance />
+              </Route>
             </Switch>
           </Router>
         </Col>
