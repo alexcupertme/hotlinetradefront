@@ -1,13 +1,33 @@
+import { useAppDispatch, useAppSelector } from "../../hooks/useTypedSelector";
 import { lazy } from "react";
 
 // ** Document title
 const TemplateTitle = "%s - Vuexy React Admin Template";
 
+let role = "user";
+
 // ** Default Route
-const DefaultRoute = "/admin";
+let DefaultRoute = "";
+
+const userDefaultRoute = "/"
+const adminDefaultRoute = "/admin"
+const authDefaultRoute = "/register"
+
+if (role === "user") {
+  DefaultRoute = userDefaultRoute
+} else if(role === "admin") {
+  DefaultRoute = adminDefaultRoute
+} else {
+  DefaultRoute = authDefaultRoute
+}
+
+// useAppSelector(state => state.auth.)
+// const dispatch = useAppDispatch();
 
 // ** Merge Routes
-const Routes = [
+const Routes = []
+
+const adminRoutes = [
   {
     path: "/admin/user/settings",
     component: lazy(() => import("../../views/admin/user")),
@@ -28,6 +48,19 @@ const Routes = [
     path: "/admin/users",
     component: lazy(() => import("../../views/admin/users")),
   },
+  //exact be careful
+  {
+    path: "/admin",
+    component: lazy(() => import("../../views/admin/Admin")),
+  },
+  {
+    path: "/error",
+    component: lazy(() => import("../../views/Error")),
+    layout: "BlankLayout",
+  },
+];
+
+const userRoutes = [
   {
     path: "/withdraw",
     component: lazy(() => import("../../views/Withdraw")),
@@ -46,9 +79,13 @@ const Routes = [
   },
   //exact be careful
   {
-    path: "/admin",
-    component: lazy(() => import("../../views/admin/Admin")),
+    path: "/error",
+    component: lazy(() => import("../../views/Error")),
+    layout: "BlankLayout",
   },
+];
+
+const authRoutes = [
   {
     path: "/login",
     component: lazy(() => import("../../views/auth/LoginCover")),
@@ -103,5 +140,15 @@ const Routes = [
     layout: "BlankLayout",
   },
 ];
+
+if (role === "user") {
+  Routes.push(...userRoutes)
+} else if(role === "admin") {
+  Routes.push(...adminRoutes)
+} else {
+  Routes.push(...authRoutes)
+}
+
+
 
 export { DefaultRoute, TemplateTitle, Routes };

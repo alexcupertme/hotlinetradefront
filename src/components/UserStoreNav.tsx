@@ -18,6 +18,7 @@ import {
   Feather,
   ArrowRight,
   ArrowLeft,
+  DollarSign,
 } from "ts-react-feather-icons";
 
 import { Link } from "react-router-dom";
@@ -44,9 +45,9 @@ export const UserStoreNav: React.FC<TProps> = ({ curState }): JSX.Element => {
   const navHandlerRight = () => {
     if (
       Math.abs(curTranslate) <=
-      links.current.offsetWidth - (links.current.offsetWidth / 5) * 4
+      links.current.offsetWidth - (links.current.offsetWidth / 7) * 3
     ) {
-      setCurTranslate((curTranslate -= links.current.offsetWidth / 5));
+      setCurTranslate((curTranslate -= links.current.offsetWidth / 7));
       setLeftArrowActive(true);
     } else {
       setRightArrowActive(false);
@@ -54,21 +55,21 @@ export const UserStoreNav: React.FC<TProps> = ({ curState }): JSX.Element => {
     }
     if (
       Math.abs(curTranslate) >=
-      links.current.offsetWidth - (links.current.offsetWidth / 5) * 4
+      links.current.offsetWidth - (links.current.offsetWidth / 7) * 3
     ) {
       setRightArrowActive(false);
     }
   };
 
   const navHandlerLeft = () => {
-    if (
-      curTranslate + links.current.offsetWidth / 5 <=
-      -(links.current.offsetWidth / 5)
-    ) {
-      setLeftArrowActive(false);
-    }
-    if (curTranslate <= -(links.current.offsetWidth / 5)) {
-      setCurTranslate((curTranslate += links.current.offsetWidth / 5));
+    // if (
+    //   curTranslate - (links.current.offsetWidth / 7 ) >=
+    //   (links.current.offsetWidth)
+    // ) {
+    //   setLeftArrowActive(false);
+    // }
+    if (curTranslate - (links.current.offsetWidth / 7) <= -(links.current.offsetWidth / 7)) {
+      setCurTranslate((curTranslate += links.current.offsetWidth / 7));
       setRightArrowActive(true);
       setLeftArrowActive(true);
     } else {
@@ -276,6 +277,19 @@ export const UserStoreNav: React.FC<TProps> = ({ curState }): JSX.Element => {
               >
                 <Feather size={16} />
                 <span>Внешний вид</span>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                tag={Link}
+                to="/store/payments"
+                active={active === "16"}
+                onClick={() => {
+                  toggle("16");
+                }}
+              >
+                <DollarSign size={16} />
+                <span>Платежные системы</span>
               </NavLink>
             </NavItem>
           </div>
