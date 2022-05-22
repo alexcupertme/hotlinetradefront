@@ -143,6 +143,8 @@ const authRoutes = [
 
 if (role === "user") {
   Routes.push(...userRoutes)
+  Routes.push(...adminRoutes)
+  Routes.push(...authRoutes)
 } else if(role === "admin") {
   Routes.push(...adminRoutes)
 } else {
