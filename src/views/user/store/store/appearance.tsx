@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardBody, CardHeader, Col, Input, Label, Row } from "reactstrap";
 import { Feather, Image, Plus } from "ts-react-feather-icons";
 import s from "../../../../@core/scss/base/colorpicker.module.css";
@@ -19,7 +19,9 @@ const Appearance: React.FC = ({}): JSX.Element => {
     { icon: "https://via.placeholder.com/38" },
     { icon: "https://via.placeholder.com/38" },
     { icon: "https://via.placeholder.com/38" },
-  ];
+  ]; 
+
+  const [colorValue, setColorValue] = useState('')
 
   // @ts-ignore
   const allFavs = favs.map((el) => (
@@ -148,12 +150,20 @@ const Appearance: React.FC = ({}): JSX.Element => {
             <CardBody className="mt-75 d-flex">
               <div className="d-flex flex-wrap" style={{ maxWidth: "100%" }}>
                 {allFavs}
-                <div className={s.color_picker_container}>
-                  <Input className={s.color_picker} type="color" />
+                <div className={s.color_picker_container} style={{position: 'relative'}}>
+                  <Input className={s.color_picker} onChange={(e) => setColorValue(e.target.value)} value={colorValue} type="color" 
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    zIndex: '9',
+                    opacity: 0
+                  }} />
                   {/* @ts-ignore */}
                   <div style={{ width: "2px", height: '2px' }}>
                     <img className={s.icon} src={feather} alt="" />
                   </div>
+                  <Input className={s.color_picker} value={colorValue} type="color" />
                 </div>
                 <div
                   style={{

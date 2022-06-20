@@ -8,7 +8,7 @@ import { data, columns } from '../../../../supercomponents/tables/data-tables/da
 // ** Third Party Components
 import ReactPaginate from 'react-paginate'
 import DataTable from 'react-data-table-component'
-import { ChevronDown, Share, Printer, FileText, File, Grid, Copy, Plus } from 'react-feather'
+import { ChevronDown, Plus } from 'react-feather'
 
 // ** Reactstrap Imports
 import {
@@ -19,13 +19,10 @@ import {
   Label,
   Button,
   CardHeader,
-  DropdownMenu,
-  DropdownItem,
-  DropdownToggle,
-  UncontrolledButtonDropdown
 } from 'reactstrap'
 import ServerModal from './ServerModal'
 import LinksModal from './LinksModal'
+import EmptyMessage from './EmptyMessage'
 
 // ** Bootstrap Checkbox Component
 const BootstrapCheckbox = forwardRef((props, ref) => (
@@ -196,6 +193,9 @@ const LinksTable = () => {
             selectableRows
             columns={columns}
             paginationPerPage={7}
+            noDataComponent={
+              <EmptyMessage />
+            }
             className='react-dataTable'
             sortIcon={<ChevronDown size={10} />}
             paginationDefaultPage={currentPage + 1}

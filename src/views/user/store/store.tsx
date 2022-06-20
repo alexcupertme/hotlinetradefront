@@ -16,6 +16,7 @@ import Sale from "./store/sale";
 import Advanced from "./store/advanced";
 import Parameters from "./store/parameters";
 import Appearance from "./store/appearance";
+import Payments from "./store/payments";
 
 const Store: React.FC = ({}): JSX.Element => {
   return (
@@ -84,6 +85,10 @@ const Store: React.FC = ({}): JSX.Element => {
               <Route path="/store/appearance">
                 <UserStoreNav curState="13" />
                 <Appearance />
+              </Route>
+              <Route path="/store/payments">
+                <UserStoreNav curState="14" />
+                <Payments />
               </Route>
             </Switch>
           </Router>

@@ -20,7 +20,7 @@ const Transactions: React.FC = ({}): JSX.Element => {
             <CardBody className="mt-75">
               <Row>
                 <Col md={4} className="d-flex justify-content-center">
-                  <NumberInput size="large" label="Комиссия" />
+                  <NumberInput step={0.5} nonMinus size="large" label="Комиссия" />
                 </Col>
                 <Col md={4} className="d-flex justify-content-center">
                   <NumberInput size="large" label="Мин. сумма" />

@@ -11,7 +11,7 @@ import {
 // ** Third Party Components
 import Flatpickr from "react-flatpickr";
 import ReactPaginate from "react-paginate";
-import { ChevronDown } from "react-feather";
+import { ChevronDown, FileText, Printer } from "react-feather";
 import DataTable from "react-data-table-component";
 
 // ** Reactstrap Imports
@@ -24,12 +24,19 @@ import {
   Label,
   Row,
   Col,
+  UncontrolledButtonDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
 } from "reactstrap";
 
 // ** Styles
 import "../../../../@core/scss/react/libs/flatpickr/flatpickr.scss";
 import ReactSelect from "react-select";
 import { selectThemeColors } from "../../../../utility/Utils";
+import { Copy, File, Grid, Share } from "ts-react-feather-icons";
+import { spawn } from "child_process";
+import EmptyMessage from "./EmptyMessage";
 
 const UsersTable = () => {
   // ** States
@@ -41,6 +48,8 @@ const UsersTable = () => {
   const [searchEmail, setSearchEmail] = useState("");
   const [searchSalary, setSearchSalary] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+
+  const [searchValue, setSearchValue] = useState('')
 
   // ** Function to handle Pagination
   const handlePagination = (page) => setCurrentPage(page.selected);
@@ -328,11 +337,158 @@ const UsersTable = () => {
     }
   };
 
+   // ** Downloads CSV
+   function downloadCSV(array) {
+    const link = document.createElement('a')
+    let csv = convertArrayOfObjectsToCSV(array)
+    if (csv === null) return
+
+    const filename = 'export.csv'
+
+    if (!csv.match(/^data:text\/csv/i)) {
+      csv = `data:text/csv;charset=utf-8,${csv}`
+    }
+
+    link.setAttribute('href', encodeURI(csv))
+    link.setAttribute('download', filename)
+    link.click()
+  }
+
+  // ** Converts table to CSV
+  function convertArrayOfObjectsToCSV(array) {
+    let result
+
+    const columnDelimiter = ','
+    const lineDelimiter = '\n'
+    const keys = Object.keys(data[0])
+
+    result = ''
+    result += keys.join(columnDelimiter)
+    result += lineDelimiter
+
+    array.forEach(item => {
+      let ctr = 0
+      keys.forEach(key => {
+        if (ctr > 0) result += columnDelimiter
+
+        result += item[key]
+
+        ctr++
+      })
+      result += lineDelimiter
+    })
+
+    return result
+  }
+
+   // ** Function to handle filter
+   const handleFilter = e => {
+    const value = e.target.value
+    let updatedData = []
+    setSearchValue(value)
+
+    const status = {
+      1: { title: 'Current', color: 'light-primary' },
+      2: { title: 'Professional', color: 'light-success' },
+      3: { title: 'Rejected', color: 'light-danger' },
+      4: { title: 'Resigned', color: 'light-warning' },
+      5: { title: 'Applied', color: 'light-info' }
+    }
+
+    if (value.length) {
+      updatedData = data.filter(item => {
+        const startsWith =
+          item.full_name.toLowerCase().startsWith(value.toLowerCase()) ||
+          item.post.toLowerCase().startsWith(value.toLowerCase()) ||
+          item.email.toLowerCase().startsWith(value.toLowerCase()) ||
+          item.age.toLowerCase().startsWith(value.toLowerCase()) ||
+          item.salary.toLowerCase().startsWith(value.toLowerCase()) ||
+          item.start_date.toLowerCase().startsWith(value.toLowerCase()) ||
+          status[item.status].title.toLowerCase().startsWith(value.toLowerCase())
+
+        const includes =
+          item.full_name.toLowerCase().includes(value.toLowerCase()) ||
+          item.post.toLowerCase().includes(value.toLowerCase()) ||
+          item.email.toLowerCase().includes(value.toLowerCase()) ||
+          item.age.toLowerCase().includes(value.toLowerCase()) ||
+          item.salary.toLowerCase().includes(value.toLowerCase()) ||
+          item.start_date.toLowerCase().includes(value.toLowerCase()) ||
+          status[item.status].title.toLowerCase().includes(value.toLowerCase())
+
+        if (startsWith) {
+          return startsWith
+        } else if (!startsWith && includes) {
+          return includes
+        } else return null
+      })
+      setFilteredData(updatedData)
+      setSearchValue(value)
+    }
+  }
+
+
   return (
     <Fragment>
       <Card>
-        <CardHeader className="border-bottom">
-          <CardTitle tag="h4">Поисковая система</CardTitle>
+        <CardHeader className="border-bottom d-flex">
+          <Col>
+            <CardTitle tag="h4">Поисковая система</CardTitle>
+          </Col>
+          <Col
+            className="d-flex align-items-center justify-content-end mt-1 me-2"
+            md="3"
+            sm="10"
+          >
+            <Label className="me-1" for="search-input">
+              Поиск
+            </Label>
+            <Input
+              className="dataTable-filter mb-50"
+              type="text"
+              bsSize="sm"
+              id="search-input"
+              value={searchValue}
+              onChange={handleFilter}
+            />
+          </Col>
+          <Col md={2} className="me-75">
+            <div className="d-flex mt-md-0 mt-1">
+              <UncontrolledButtonDropdown>
+                <DropdownToggle color="secondary" caret outline>
+                  <Share size={15} />
+                  <span className="align-middle ms-50">Export</span>
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem className="w-100">
+                    <Printer size={15} />
+                    <span className="align-middle ms-50">Print</span>
+                  </DropdownItem>
+                  <DropdownItem
+                    className="w-100"
+                    onClick={() => downloadCSV(data)}
+                  >
+                    <FileText size={15} />
+                    <span className="align-middle ms-50">CSV</span>
+                  </DropdownItem>
+                  <DropdownItem
+                    className="w-100"
+                    onClick={() => downloadCSV(data)}
+                  >
+                    <Grid size={15} />
+                    <span className="align-middle ms-50">Excel</span>
+                  </DropdownItem>
+                  <DropdownItem className="w-100">
+                    <File size={15} />
+                    <span className="align-middle ms-50">PDF</span>
+                  </DropdownItem>
+                  <DropdownItem className="w-100">
+                    <Copy size={15} />
+                    <span className="align-middle ms-50">Copy</span>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledButtonDropdown>
+            </div>
+          </Col>
         </CardHeader>
         <CardBody>
           <Row className="mt-1 mb-50">
@@ -381,12 +537,17 @@ const UsersTable = () => {
                 theme={selectThemeColors}
               />
             </Col>
+
+            <Col></Col>
           </Row>
         </CardBody>
         <div className="react-dataTable">
           <DataTable
             noHeader
             pagination
+            noDataComponent={
+              <EmptyMessage />
+            }
             columns={advSearchColumns}
             paginationPerPage={7}
             className="react-dataTable"

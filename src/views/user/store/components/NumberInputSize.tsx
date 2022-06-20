@@ -9,12 +9,16 @@ type TProps = {
   size: string;
   label: string;
   isRoubles?: boolean;
+  step?: number;
+  nonMinus?: boolean;
 };
 
 const NumberInput: React.FC<TProps> = ({
   size,
   label,
   isRoubles,
+  step,
+  nonMinus
 }): JSX.Element => {
   const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

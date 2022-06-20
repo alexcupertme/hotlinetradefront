@@ -26,6 +26,7 @@ import {
 } from 'reactstrap'
 import ServerModal from './ServerModal'
 import PromoModal from './PromoModal'
+import EmptyMessage from './EmptyMessage'
 
 // ** Bootstrap Checkbox Component
 const BootstrapCheckbox = forwardRef((props, ref) => (
@@ -196,6 +197,9 @@ const PromoTable = () => {
             selectableRows
             columns={columns}
             paginationPerPage={7}
+            noDataComponent={
+              <EmptyMessage />
+            }
             className='react-dataTable'
             sortIcon={<ChevronDown size={10} />}
             paginationDefaultPage={currentPage + 1}

@@ -11,7 +11,7 @@ import AddNewModal from '../../../../supercomponents/tables/data-tables/basic/Ad
 // ** Third Party Components
 import ReactPaginate from 'react-paginate'
 import DataTable from 'react-data-table-component'
-import { ChevronDown, Share, Printer, FileText, File, Grid, Copy, Plus } from 'react-feather'
+import { ChevronDown, Plus } from 'react-feather'
 
 // ** Reactstrap Imports
 import {
@@ -21,14 +21,10 @@ import {
   Input,
   Label,
   Button,
-  CardTitle,
   CardHeader,
-  DropdownMenu,
-  DropdownItem,
-  DropdownToggle,
-  UncontrolledButtonDropdown
 } from 'reactstrap'
 import StaffModal from './StaffModal'
+import EmptyMessage from './EmptyMessage'
 
 // ** Bootstrap Checkbox Component
 const BootstrapCheckbox = forwardRef((props, ref) => (
@@ -196,6 +192,9 @@ const StaffTable = () => {
           <DataTable
             noHeader
             pagination
+            noDataComponent={
+              <EmptyMessage />
+            }
             selectableRows
             columns={columns}
             paginationPerPage={7}

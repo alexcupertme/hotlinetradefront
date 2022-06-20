@@ -17,6 +17,10 @@ import makeAnimated from "react-select/animated";
 import { selectThemeColors } from "../../../../utility/Utils";
 import ApiKey from "../components/api";
 
+import CreatableSelect from 'react-select/creatable';
+// import { ColourOption, colourOptions } from '../data';
+import { ActionMeta, OnChangeValue } from 'react-select';
+
 const Main: React.FC = ({}): JSX.Element => {
   const animatedComponents = makeAnimated();
 
@@ -25,6 +29,8 @@ const Main: React.FC = ({}): JSX.Element => {
     { value: "dayz", label: "DayZ" },
     { value: "rust", label: "Rust" },
   ];
+
+ 
 
   return (
     <>
@@ -96,7 +102,7 @@ const Main: React.FC = ({}): JSX.Element => {
               <Row>
                 <Label className="mt-75">
                   <span>Ключевые слова</span>
-                  <ReactSelect
+                  <CreatableSelect
                     closeMenuOnSelect={false}
                     components={animatedComponents}
                     defaultValue={[storeOptions[0]]}

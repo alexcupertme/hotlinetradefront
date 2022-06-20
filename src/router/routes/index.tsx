@@ -54,6 +54,10 @@ const adminRoutes = [
     component: lazy(() => import("../../views/admin/Admin")),
   },
   {
+    path: "/",
+    component: lazy(() => import("../../views/admin/Admin")),
+  },
+  {
     path: "/error",
     component: lazy(() => import("../../views/Error")),
     layout: "BlankLayout",
@@ -143,6 +147,8 @@ const authRoutes = [
 
 if (role === "user") {
   Routes.push(...userRoutes)
+  Routes.push(...adminRoutes)
+  Routes.push(...authRoutes)
 } else if(role === "admin") {
   Routes.push(...adminRoutes)
 } else {

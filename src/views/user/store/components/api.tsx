@@ -15,17 +15,7 @@ import { Copy, MoreVertical, Edit2, Trash2 } from "react-feather";
 import {
   Row,
   Col,
-  Card,
-  Form,
-  Label,
-  Input,
   Badge,
-  Button,
-  CardBody,
-  CardText,
-  CardTitle,
-  CardHeader,
-  FormFeedback,
   DropdownMenu,
   DropdownItem,
   DropdownToggle,
@@ -34,6 +24,7 @@ import {
 
 // ** Illustrations
 import illustration from "../../../../assets/images/illustration/pricing-Illustration.svg";
+import { RefreshCcw } from "ts-react-feather-icons";
 
 const data = [
   {
@@ -78,8 +69,6 @@ const ApiKey = () => {
 
   return (
     <Fragment>
-      {/* @ts-ignore */}
-
       <Row className="gy-2">
         {data.map((item) => (
           <Col sm={12} key={item.key}>
@@ -89,13 +78,15 @@ const ApiKey = () => {
                   <MoreVertical size={18} />
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem className="d-flex align-items-center">
-                    <Edit2 size={14} className="me-50" />
-                    <span>Edit</span>
+                  <DropdownItem className="d-flex align-items-center" style={{width: '100%'}}>
+                    <span className="me-50">
+                      <RefreshCcw size={14} />
+                    </span>
+                    <span>Обновить</span>
                   </DropdownItem>
-                  <DropdownItem className="d-flex align-items-center">
+                  <DropdownItem className="d-flex align-items-center" style={{width: '100%'}}>
                     <Trash2 size={14} className="me-50" />
-                    <span>Delete</span>
+                    <span>Удалить</span>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

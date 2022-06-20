@@ -125,9 +125,7 @@ const StaffModal: React.FC<TProps> = ({ show, setShow }): JSX.Element => {
               </Col>
               <Col onClick={handleClickCheckbox}>
                 <FormGroup check>
-                  <Label for="checkbox1">
-                    Выбрать все
-                  </Label>
+                  <Label for="checkbox1">Выбрать все</Label>
                   <Input
                     id="checkbox1"
                     checked={checkbox1}

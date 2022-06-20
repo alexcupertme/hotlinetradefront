@@ -1,11 +1,9 @@
 // @ts-nocheck
 import React, { useState } from "react";
 import {
-  Button,
   Col,
   Input,
   InputGroup,
-  InputGroupText,
   Label,
   Modal,
   ModalBody,
@@ -15,11 +13,9 @@ import {
   Card,
   CardHeader,
 } from "reactstrap";
-import TableStriped from "../tables/reactstrap/TableStriped";
 import s from "../../styles/Payments.module.css";
 import { RippleButton } from "../../@core/components/ripple-button";
 
-import SliderScalePips from "../../supercomponents/extensions/sliders/SliderScalePips";
 import TableBasic from "../../supercomponents/tables/reactstrap/TableBasic";
 
 const Payments: React.FC = ({}): JSX.Element => {

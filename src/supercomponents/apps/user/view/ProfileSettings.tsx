@@ -165,7 +165,7 @@ const ProfileSettings = ({ data }) => {
     <Fragment>
       <Card>
         <CardHeader className="border-bottom">
-          <CardTitle tag="h4">Profile Details</CardTitle>
+          <CardTitle tag="h4">Настройки профиля</CardTitle>
         </CardHeader>
         <CardBody className="py-2 my-25">
           <div className="d-flex">
@@ -186,7 +186,7 @@ const ProfileSettings = ({ data }) => {
                   size="sm"
                   color="primary"
                 >
-                  Upload
+                  Загрузить
                   <Input
                     type="file"
                     onChange={onChange}
@@ -201,10 +201,10 @@ const ProfileSettings = ({ data }) => {
                   outline
                   onClick={handleImgReset}
                 >
-                  Reset
+                  Сбросить
                 </Button>
                 <p className="mb-0">
-                  Allowed JPG, GIF or PNG. Max size of 800kB
+                  Поддерживаются JPG, GIF или PNG. Максимальный размер 800kB
                 </p>
               </div>
             </div>
@@ -213,7 +213,7 @@ const ProfileSettings = ({ data }) => {
             <Row>
               <Col sm="6" className="mb-1">
                 <Label className="form-label" for="firstName">
-                  First Name
+                  Имя
                 </Label>
                 <Controller
                   name="firstName"
@@ -228,12 +228,12 @@ const ProfileSettings = ({ data }) => {
                   )}
                 />
                 {errors && errors.firstName && (
-                  <FormFeedback>Please enter a valid First Name</FormFeedback>
+                  <FormFeedback>Введите корректное имя</FormFeedback>
                 )}
               </Col>
               <Col sm="6" className="mb-1">
                 <Label className="form-label" for="lastName">
-                  Last Name
+                  Фамилия
                 </Label>
                 <Controller
                   name="lastName"
@@ -248,12 +248,12 @@ const ProfileSettings = ({ data }) => {
                   )}
                 />
                 {errors.lastName && (
-                  <FormFeedback>Please enter a valid Last Name</FormFeedback>
+                  <FormFeedback>Введите корректную фамилию</FormFeedback>
                 )}
               </Col>
               <Col sm="6" className="mb-1">
                 <Label className="form-label" for="emailInput">
-                  E-mail
+                  Почта
                 </Label>
                 <Input
                   id="emailInput"

@@ -25,6 +25,7 @@ import {
   UncontrolledButtonDropdown
 } from 'reactstrap'
 import ServerModal from './ServerModal'
+import EmptyMessage from './EmptyMessage'
 
 // ** Bootstrap Checkbox Component
 const BootstrapCheckbox = forwardRef((props, ref) => (
@@ -194,6 +195,9 @@ const ServersTable = () => {
             pagination
             selectableRows
             columns={columns}
+            noDataComponent={
+              <EmptyMessage />
+            }
             paginationPerPage={7}
             className='react-dataTable'
             sortIcon={<ChevronDown size={10} />}
