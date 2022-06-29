@@ -10,6 +10,7 @@
 
 .color_picker {
   -webkit-appearance: 'none';
+  
   -moz-appearance: 'none';
   appearance: "none";
   padding: 0;
